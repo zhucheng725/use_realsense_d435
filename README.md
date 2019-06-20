@@ -64,7 +64,9 @@ modinfo uvcvideo | grep "version:" should include realsense string
 ![image](https://github.com/zhucheng725/use_realsense_d435/blob/master/2019-06-20%2010-26-23%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
 
 <br>
-### 2.update<br>
+
+### 2.update
+<br>
 Firstly, I start to use 
 <br>
 
@@ -84,6 +86,8 @@ Then I download this bin from :
 <br>
 
 https://downloadmirror.intel.com/28870/eng/D400_Series_Production_FW_5_11_6_250.zip
+<br>
+Then to do this command:
 <br>
 
 ```
