@@ -9,84 +9,111 @@ Add Intel server to the list of repositories : <br>
 echo 'deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main' | sudo tee /etc/apt/sources.list.d/realsense-public.list
 ```
 <br>
+
 It is recommended to backup /etc/apt/sources.list.d/realsense-public.list file in case of an upgrade.
 <br>
+
 Register the server’s public key :
 <br>
+
 ```
 sudo apt-key adv --keyserver keys.gnupg.net --recv-key 6F3EFCDE
 ```
+
 Refresh the list of repositories and packages available :
 <br>
+
 ```
 sudo apt-get update
 ```
+
 In order to run demos install:
 <br>
+
 ```
 sudo apt-get install librealsense2-dkms
 sudo apt-get install librealsense2-utils
 ```
+
 The above two lines will deploy librealsense2 udev rules, kernel drivers, runtime library and executable demos and tools. Reconnect the Intel RealSense depth camera and run:
 <br>
+
 ```
 realsense-viewer
 ```
+
 Developers shall install additional packages:
 <br>
+
 ```
 sudo apt-get install librealsense2-dev
 sudo apt-get install librealsense2-dbg
 ```
+
 With dev package installed, you can compile an application with librealsense using g++ -std=c++11 filename.cpp -lrealsense2 or an IDE of your choice.
 <br>
+
 Verify that the kernel is updated :
 <br>
+
 ```
 modinfo uvcvideo | grep "version:" should include realsense string
 ```
 <br>
-![image](https://github.com/zhucheng725/use_realsense_d435/blob/master/2019-06-20%2010-26-23%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
-<br>
 
+![image](https://github.com/zhucheng725/use_realsense_d435/blob/master/2019-06-20%2010-26-23%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
+
+<br>
 ### 2.update<br>
 Firstly, I start to use 
 <br>
+
 ```
 realsense-viewer
 ```
+
 to see the IDE, but I can not use this IDE to get frame from the D435.
 <br>
+
 And I try updating and use this IDE successfully. You can search some details from the website:
 <br>
+
 https://www.intel.com/content/www/us/en/support/articles/000028593/emerging-technologies/intel-realsense-technology.html
 
 Then I download this bin from :
 <br>
-https://downloadmirror.intel.com/28870/eng/D400_Series_Production_FW_5_11_6_250.zip<br>
+
+https://downloadmirror.intel.com/28870/eng/D400_Series_Production_FW_5_11_6_250.zip
+<br>
 
 ```
 sudo apt-get install intel-realsense-dfu*
 lsusb
 ```
+<br>
 Notice “Intel Corp.” bus and device numbers; DFU tool uses these values to identify Intel® RealSenseTM D400 series camera.<br>
-(This command specifies bus #, device #, -f flag to force upgrade, and –i flag for complete system path to downloaded FW.bin file.)
+(This command specifies bus #, device #, -f flag to force upgrade, and –i flag for complete system path to downloaded FW.bin file.)<br>
+
 ```
 intel-realsense-dfu –b 002 –d 002 –f –i /home/intel/downloads/Signed_Image_UVC_5_9_2_0.bin
 ```
+<br>
+
 Check firmware with command:
 <br>
 ```
 intel-realsense-dfu –p 
 ```
+<br>
 
 ### 3.Python<br>
 If you wanna to use python wrapper, you must install pyrealsense2
 <br>
+
 ```
 pip3 install --user pyrealsense2
 ```
-
+<br>
 
 ### 4.Example<br>
 Some examples can be used from:
@@ -135,6 +162,7 @@ cv2.destoryAllWindows()
 pipeline.stop()
 ```
 <br>
+
 ![image](https://github.com/zhucheng725/use_realsense_d435/blob/master/test.jpg)
 <br>
 
