@@ -9,7 +9,8 @@ Add Intel server to the list of repositories : <br>
 echo 'deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main' | sudo tee /etc/apt/sources.list.d/realsense-public.list
 ```
 <br>
-It is recommended to backup /etc/apt/sources.list.d/realsense-public.list file in case of an upgrade.<br>
+It is recommended to backup /etc/apt/sources.list.d/realsense-public.list file in case of an upgrade.
+<br>
 Register the server’s public key :
 <br>
 ```
