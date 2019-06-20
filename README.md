@@ -87,9 +87,8 @@ Then I download this bin from :
 
 https://downloadmirror.intel.com/28870/eng/D400_Series_Production_FW_5_11_6_250.zip
 <br>
-Then to do this command:
-<br>
 
+Then to do this command:
 ```
 sudo apt-get install intel-realsense-dfu*
 lsusb
